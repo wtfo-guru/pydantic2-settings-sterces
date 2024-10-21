@@ -5,6 +5,8 @@ Pydantic2-Settings-Vault is a simple extension of Pydantic Settings to collect s
 ### Demonstration:
 
 ```python
+from functools import lru_cache
+from threading import Lock
 from typing import Tuple, Type
 from pydantic import Field, SecretStr
 from pydantic_settings import (
@@ -48,6 +50,13 @@ os.environ['VAULT_SECRET_ID'] = "<configure it>"
 # Only with Enterprise edition
 os.environ['VAULT_NAMESPACE'] = "<configure it>"
 
+# Usage
+app_settings_lock = Lock()
+
+@lru_cache
+def get_app_settings() -> AppSettings:
+    with app_settings_lock:
+        return AppSettings()  # type: ignore
 ```
 
 ## Table of Contents
