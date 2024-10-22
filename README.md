@@ -2,6 +2,7 @@
 
 Pydantic2-Settings-Vault is a simple extension of Pydantic Settings to collect secrets from HashiCorp Vault OpenSource (OSS) and Enterprise
 
+
 ### Demonstration:
 
 ```python
@@ -41,7 +42,7 @@ class AppSettings(BaseSettings):
             VaultConfigSettingsSource(settings_cls=settings_cls),
         )
 
-# The connection to Vault is done via HTTP with AppRole authentication
+# The connection to Vault is done via HTTPS with AppRole authentication
 import os
 os.environ['VAULT_URL'] = "<configure it>"
 os.environ['VAULT_ROLE_ID'] = "<configure it>"
@@ -50,13 +51,35 @@ os.environ['VAULT_SECRET_ID'] = "<configure it>"
 # Only with Enterprise edition
 os.environ['VAULT_NAMESPACE'] = "<configure it>"
 
-# Usage
+### Usage
 app_settings_lock = Lock()
 
 @lru_cache
 def get_app_settings() -> AppSettings:
     with app_settings_lock:
         return AppSettings()  # type: ignore
+```
+
+### Internal interactions:
+```mermaid
+sequenceDiagram
+    participant A as Your Application
+    participant B as BaseSettings
+    participant V as Vault
+    note over A,B: 1. Retrieve settings
+    A->>B: get_app_settings()
+    note over B: 2. Collect secrets paths
+    B->>B: foreach fields, get the secret path and keep unique value
+    note over B,V: 3. HTTPS Asynchronously fetch secrets by path from Vault
+    B->>V: get_secrets(secrets/data/<A>)
+    B->>V: get_secrets(secrets/data/<B>)
+    note over V,B: 4. Vault returns secrets
+    V->>B: return secrets for secrets/data/<A>
+    V->>B: return secrets for secrets/data/<B>
+    note over B: 5. Fill fields with secrets values
+    B->>B: SECRET_ONE => secrets/data/<A>[SECRET_ONE] <br> SECRET_TWO => secrets/data/<A>[SECRET_TWO] <br> SECRET_THREE => secrets/data/<B>[SECRET_THREE]
+    note over B,A: 6. Return settings
+    B->>A: settings with variables and secrets
 ```
 
 ## Table of Contents
