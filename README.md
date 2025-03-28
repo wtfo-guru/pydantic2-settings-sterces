@@ -1,6 +1,6 @@
-# Pydantic2-Settings-Vault
+# Pydantic2-Settings-Sterces
 
-Pydantic2-Settings-Vault is a simple extension of Pydantic Settings to collect secrets from HashiCorp Vault OpenSource (OSS) and Enterprise
+Pydantic2-Settings-Sterces is a simple extension of Pydantic Settings to collect secrets from a KeePass database file.
 
 
 ### Demonstration:
@@ -84,7 +84,7 @@ sequenceDiagram
 
 ## Table of Contents
 
-- [Pydantic2-Settings-Vault](#Pydantic2-Settings-Vault)
+- [Pydantic2-Settings-Sterces](#Pydantic2-Settings-Sterces)
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
   - [Installation](#installation)
@@ -93,22 +93,25 @@ sequenceDiagram
 
 ## Description
 
-Pydantic2-Settings-Vault is a extension for Pydantic Settings that enables secure configuration management by integrating with HashiCorp Vault. This library supports both the open-source (OSS) and Enterprise versions of Vault, providing a seamless way to retrieve and manage secrets within your Pydantic-based applications. By leveraging Vault's robust security features, Pydantic2-Settings-Vault allows developers to easily incorporate secure secret management practices into their Python projects, enhancing overall application security and simplifying the handling of sensitive configuration data.
+Pydantic2-Settings-Sterces is a extension for Pydantic Settings that enables secure configuration management by integrating with HashiCorp Vault. This library supports both the open-source (OSS) and Enterprise versions of Vault, providing a seamless way to retrieve and manage secrets within your Pydantic-based applications. By leveraging Vault's robust security features, Pydantic2-Settings-Sterces allows developers to easily incorporate secure secret management practices into their Python projects, enhancing overall application security and simplifying the handling of sensitive configuration data.
 
 ## Installation
 
 ```bash
 # Install the dependency
-pip install pydantic2-settings-vault
-uv add pydantic2-settings-vault
-poetry add pydantic2-settings-vault
+pip install Pydantic2-Settings-Sterces
+uv add Pydantic2-Settings-Sterces
+poetry add Pydantic2-Settings-Sterces
 ```
 
 ## License
 
-Pydantic2-Settings-Vault is released under the MIT License. See the [LICENSE](LICENSE) file for more details.
+Pydantic2-Settings-Sterces is released under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contact
 
-For questions, suggestions, or issues related to Pydantic2-Settings-Vault, please open an issue on the GitHub repository.
+For questions, suggestions, or issues related to Pydantic2-Settings-Sterces, please open an issue on the GitHub repository.
 
+## Credits
+
+Based on work at: <https://github.com/sylvainmouquet/pydantic2-settings-vault>
