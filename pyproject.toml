@@ -4,17 +4,12 @@ version = "0.0.1"
 description = "A Pydantic v2 settings extension for secure configuration management using HashiCorp Vault OpenSource (OSS) and Enterprise"
 authors = [{name = "Sylvain Mouquet", email = "sylvain.mouquet@gmail.com"}]
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<4.0"
 dependencies = [
-    "aiohttp>=3.10.10",
-    "certifi>=2025.1.31",
-    "concurrency-limiter>=1.1.0",
-    "pydantic>=2.9.2",
     "pydantic-settings>=2.6.0",
-    "reattempt>=1.1.3",
 ]
 license = { text = "MIT" }
-url = "https://github.com/sylvainmouquet/pydantic2-settings-vault"
+url = "https://github.com/wtfo-guru/pydantic2-settings-sterces"
 keywords = ["pydantic", "settings", "vault", "hashicorp", "configuration", "security", "secrets management", "python", "opensource", "enterprise"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -30,33 +25,47 @@ classifiers = [
 ]
 
 [project.urls]
-homepage = "https://github.com/sylvainmouquet/pydantic2-settings-vault"
-documentation = "https://github.com/sylvainmouquet/pydantic2-settings-vault"
-repository = "https://github.com/sylvainmouquet/pydantic2-settings-vault"
-changelog = "https://github.com/sylvainmouquet/pydantic2-settings-vault/releases"
+homepage = "https://github.com/wtfo-guru/pydantic2-settings-sterces"
+# documentation = "https://github.com/wtfo-guru/pydantic2-settings-sterces"
+repository = "https://github.com/wtfo-guru/pydantic2-settings-sterces"
+changelog = "https://github.com/wtfo-guru/pydantic2-settings-sterces/blob/main/CHANGELOG.md"
 
+
+[tool.poetry]
+packages = [{include = "pydantic2_settings_sterces"}]
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+mypy = "^1.15.0"
+wemake-python-styleguide = "^1.1.0"
+flake8-pytest-style = "^2.1.0"
+doc8 = "^1.1.2"
+docutils = "^0.21.2"
+nitpick = "^0.35.0"
+safety = "^3.3.1"
+pytest = "^8.3.5"
+pytest-cov = "^6.0.0"
+isort = "^6.0.1"
+black = "^25.1.0"
+darglint = "^1.8.1"
+flake8-docstrings = "^1.7.0"
+flake8-rst-docstrings = "^0.3.0"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^8.0"
+sphinx-autodoc-typehints = "^3.0"
+tomli = "^2.2.1"
+sphinx-mdinclude = "^0.6.2"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
 
-[tool.uv]
-dev-dependencies = [
-    "anyio>=4.6.2.post1",
-    "asyncpg>=0.30.0",
-    "loguru>=0.7.2",
-    "pip>=24.2",
-    "pydocks>=1.2.0",
-    "pytest>=8.3.3",
-    "pytest-asyncio>=0.24.0",
-    "pytest-mock>=3.14.0",
-    "python-on-whales>=0.73.0",
-    "ruff>=0.6.7",
-]
+[tool.nitpick]
+style = "https://www.wtfo-guru.com/.well-known/nitpick-wtf-style.toml"
 
-[tool.uv.sources]
-pydantic2-settings-vault = { path = "pydantic2_settings_vault" }
-# pydocks = { path = "../pydocks" }
-
-[tool.hatch.build.targets.wheel]
-packages = ["pydantic2_settings_vault"]
