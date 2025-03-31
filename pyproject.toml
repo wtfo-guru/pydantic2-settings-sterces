@@ -1,15 +1,14 @@
 [project]
-name = "pydantic2-settings-vault"
-version = "0.0.1"
+name = "pydantic2-settings-sterces"
+version = "0.1.0"
 description = "A Pydantic v2 settings extension for secure configuration management using a KeePass database file."
-authors = [{name = "Sylvain Mouquet", email = "sylvain.mouquet@gmail.com"}]
+authors = [{name = "Quien Sabe", email = "qs5779@mail.com"}]
 readme = "README.md"
 requires-python = ">=3.10,<4.0"
 dependencies = [
     "pydantic-settings>=2.6.0",
 ]
 license = { text = "MIT" }
-url = "https://github.com/wtfo-guru/pydantic2-settings-sterces"
 keywords = ["pydantic", "settings", "keepass", "configuration", "security", "secrets management", "python", "opensource"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
