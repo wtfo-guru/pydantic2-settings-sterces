@@ -43,7 +43,6 @@ flake8-pytest-style = "^2.1.0"
 doc8 = "^1.1.2"
 docutils = "^0.21.2"
 nitpick = "^0.35.0"
-safety = "^3.3.1"
 pytest = "^8.3.5"
 pytest-cov = "^6.0.0"
 isort = "^6.0.1"
@@ -67,4 +66,3 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.nitpick]
 style = "https://www.wtfo-guru.com/.well-known/nitpick-wtf-style.toml"
-
