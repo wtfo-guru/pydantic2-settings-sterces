@@ -71,7 +71,7 @@ publish-test: build
 
 .PHONY: safety
 safety:
-	poetry run safety scan --full-report
+	safety scan --full-report
 
 .PHONY: nitpick
 nitpick:
@@ -80,8 +80,8 @@ nitpick:
 .PHONY: test
 test: nitpick lint package unit
 
-.PHONY: ghtest
-ghtest: lint package unit
+.PHONY: citest
+citest: lint package unit
 
 .PHONY: build
 build: version-sanity safety clean-build test
