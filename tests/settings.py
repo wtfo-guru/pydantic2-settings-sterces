@@ -3,12 +3,11 @@ from threading import Lock
 from typing import Tuple, Type
 
 from pydantic import Field, SecretStr
+from pydantic2_settings_vault import VaultConfigSettingsSource
 from pydantic_settings import (
     BaseSettings,
     PydanticBaseSettingsSource,
 )
-
-from pydantic2_settings_vault import VaultConfigSettingsSource
 
 # env_file: str = ".env.test" if "PYTEST_VERSION" in os.environ else f".env"
 

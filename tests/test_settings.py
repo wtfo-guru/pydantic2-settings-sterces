@@ -1,13 +1,13 @@
-import pytest
-from pydantic_core._pydantic_core import ValidationError
-
+import os
 from test.settings import (
-    get_valid_app_settings,
     ValidAppSettings,
     get_invalid_app_settings,
+    get_valid_app_settings,
 )
+
+import pytest
 from loguru import logger
-import os
+from pydantic_core._pydantic_core import ValidationError
 
 
 @pytest.mark.asyncio

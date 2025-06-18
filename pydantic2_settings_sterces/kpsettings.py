@@ -1,4 +1,5 @@
 """Module kpsettings for pydantic2-settings-sterces package."""
+
 import logging
 import os
 from typing import Any, Tuple
@@ -84,6 +85,7 @@ class InternalHttpVault:
         except Exception as e:
             await self.session.close()
             raise e
+
 
 class VaultConfigSettingsSource(PydanticBaseSettingsSource):
     CONST_HEADER_X_VAULT_TOKEN: str = "X-Vault-Token"
